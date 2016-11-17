@@ -1,0 +1,25 @@
+<div class="row">
+    <div class="col-sm-12">
+        <div class="" ng-repeat="user in users">
+            <h2>{{user.name}}</h2>
+            <div class="" ng-show="user.validationErrors.length > 0">
+                <div ng-repeat="error in user.validationErrors">
+                    <h4 class="text-danger">
+                        {{error.title}}
+                    </h4>
+
+                    <ul ng-hide="error.errantShifts.length < 1">
+                        <li ng-repeat="shift in error.errantShifts">
+                            {{shift.title}}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="" ng-hide="user.validationErrors.length > 0">
+                No Errors
+            </div>
+
+        </div>
+
+    </div>
+</div>

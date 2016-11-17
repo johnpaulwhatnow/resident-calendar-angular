@@ -1,0 +1,67 @@
+<div class="row">
+    <div class="col-sm-8">
+        <h2>{{calendarTitle}}</h2>
+
+        <button
+                class="btn btn-primary"
+                mwl-date-modifier
+                date="viewDate"
+                decrement="calendarView">
+            Previous
+        </button>
+
+        <button
+                class="btn btn-default"
+                mwl-date-modifier
+                date="viewDate"
+                set-to-today>
+            Today
+        </button>
+
+        <button
+                class="btn btn-primary"
+                mwl-date-modifier
+                date="viewDate"
+                increment="calendarView">
+            Next
+        </button>
+
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-8">
+        <mwl-calendar
+                view="calendarView"
+                view-date="viewDate"
+                events="events"
+                view-title="calendarTitle"
+                on-event-click="eventClicked(calendarEvent)"
+                on-event-times-changed="calendarEvent.startsAt = calendarNewEventStart; calendarEvent.endsAt = calendarNewEventEnd"
+                cell-is-open="true">
+        </mwl-calendar>
+        <div class="shift-shell" ng-hide="(events[0] === null)">
+            <h2>Table View</h2>
+            <shift-table events="{{events}}">
+
+            </shift-table>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="well" ng-hide="isShiftFormShown">
+            <button type="button" ng-click="showShiftForm()" class="btn btn-primary btn-block">
+                Add Shift
+            </button>
+        </div>
+        <div class="well" ng-show="isShiftFormShown">
+            <shift-date-time-pickers data="{{data}}" context ="add">
+
+            </shift-date-time-pickers>
+            <button type="button" ng-click="stringify()">
+                Stringify
+            </button>
+
+        </div>
+        <button type="button" ng-click="importDemoData()">
+            Import Demo Data
+        </button>    </div>
+</div>
