@@ -1,0 +1,22 @@
+<form ng-submit="processShift()">
+    <label for="start-date">
+        Start of Shift
+    </label>
+    <div class="" ng-hide="(data.startDate === null)">
+        (currently: {{data.startDate|amDateFormat:'"dddd, MMMM Do YYYY, h:mm a"'}}
+    </div>
+    <datetimepicker id="start-date" data-datetimepicker-config="{modelType:'moment'}" data-ng-model="data.startDate" data-on-set-time="onStartTimeSet(newDate, oldDate)"></datetimepicker>
+
+    <div class="" ng-hide="(data.startDate === null)">
+        <label for="end-date">
+            End of Shift
+        </label>
+        <div class="" ng-hide="(data.endDateDate === null)">
+            (currently: {{data.endDate|amDateFormat:'"dddd, MMMM Do YYYY, h:mm a"'}}
+        </div>
+        <datetimepicker id="end-date" data-datetimepicker-config="{modelType:'moment'}" data-ng-model="data.endDate" data-on-set-time="onEndTimeSet(newDate, oldDate)"></datetimepicker>
+    </div>
+
+    <button type="submit" ng-disabled="(data.startDate === null) && ( data.endDate === null)" class="btn btn-primary btn-block" >Submit</button>
+</form>
+</div>

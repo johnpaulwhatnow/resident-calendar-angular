@@ -1,0 +1,38 @@
+<table class="table table-responsive">
+    <tr>
+        <th>
+            Doctor
+        </th>
+        <th>
+            Shift Start
+        </th>
+        <th>
+            Shift End
+        </th>
+        <th>
+            Shift Length
+        </th>
+        <th>
+            Actions
+        </th>
+    </tr>
+    <tr ng-repeat="shift in events">
+        <td>
+            {{shift.userName}}
+        </td>
+        <td>
+            {{shift.startsAt|amDateFormat:'M/D/YY H:mm'}}
+        </td>
+        <td>
+            {{shift.endsAt|amDateFormat:'M/D/YY H:mm'}}
+        </td>
+        <td>
+            {{shift.shiftLength}} Hours
+        </td>
+        <td>
+            <a ng-href="#/edit-shift/{{$index}}" class="btn btn-danger">Edit</a>
+
+        </td>
+
+    </tr>
+</table>

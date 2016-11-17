@@ -1,0 +1,22 @@
+<h2>
+    Login
+</h2>
+
+
+<form ng-submit="chooseUser()">
+    <label for="choose-user">
+        Select a User
+    </label>
+    <select id="choose-user" ng-model="data.selectedUser" ng-options="user as user.name for user in data.users track by user.id"  class="form-control">
+
+    </select>
+    <div class="password-shell" ng-if="data.selectedUser">
+        <label for="password">
+            Password
+        </label>
+        <input id="password" ng-model="data.password" type="password" class="form-control" />
+        <button  type="submit" class="btn btn-primary">
+            Choose User
+        </button>
+    </div>
+</form>
